@@ -29,9 +29,16 @@ export function Navbar() {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ease-brand ${
         scrolled
-          ? "border-b border-border bg-background/75 backdrop-blur-xl shadow-soft"
-          : "border-b border-transparent bg-transparent"
+          ? "border-b border-border bg-background/90 shadow-soft"
+          : "border-b border-border/40 bg-background/70"
       }`}
+      style={{
+        WebkitBackdropFilter: "blur(16px)",
+        backdropFilter: "blur(16px)",
+        backgroundColor: scrolled
+          ? "color-mix(in oklab, var(--background) 90%, transparent)"
+          : "color-mix(in oklab, var(--background) 70%, transparent)",
+      }}
     >
       <nav
         aria-label="Main"
@@ -78,7 +85,11 @@ export function Navbar() {
       <div
         id="mobile-nav"
         hidden={!open}
-        className="border-t border-border bg-background/95 backdrop-blur-xl lg:hidden"
+        className="border-t border-border bg-background/95 lg:hidden"
+        style={{
+          WebkitBackdropFilter: "blur(16px)",
+          backdropFilter: "blur(16px)",
+        }}
       >
         <ul className="mx-auto flex max-w-7xl flex-col px-5 py-3">
           {NAV.map((n) => (
