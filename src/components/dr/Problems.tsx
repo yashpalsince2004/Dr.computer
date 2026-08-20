@@ -28,61 +28,62 @@ import hardwareImg from "@/assets/problem-hardware.jpg";
 import hardware480 from "@/assets/problem-hardware-480.webp";
 import hardware768 from "@/assets/problem-hardware-768.webp";
 
-const srcset = (a: string, b: string) => `${a} 480w, ${b} 768w`;
+const getSrc = (img: any): string => (typeof img === "string" ? img : img?.src || "");
+const srcset = (a: any, b: any) => `${getSrc(a)} 480w, ${getSrc(b)} 768w`;
 const SIZES = "(min-width: 1024px) 22vw, (min-width: 640px) 45vw, 90vw";
 
 const PROBLEMS = [
   {
-    img: slowImg,
+    img: getSrc(slowImg),
     webp: srcset(slow480, slow768),
     alt: "Frustrated person waiting at a laptop that shows a stalled loading spinner on screen",
     title: "Computer Running Slow",
     text: "We identify performance bottlenecks and optimize your system.",
   },
   {
-    img: virusImg,
+    img: getSrc(virusImg),
     webp: srcset(virus480, virus768),
     alt: "Laptop screen displaying a red antivirus alert warning about detected malware",
     title: "Virus or Malware",
     text: "We remove threats and help protect your computer.",
   },
   {
-    img: bootImg,
+    img: getSrc(bootImg),
     webp: srcset(boot480, boot768),
     alt: "Open laptop with a completely blank black screen that fails to boot up",
     title: "Computer Not Starting",
     text: "We diagnose hardware and software startup problems.",
   },
   {
-    img: powerImg,
+    img: getSrc(powerImg),
     webp: srcset(power480, power768),
     alt: "Close-up of a laptop charging port with the power adapter cable plugged in",
     title: "Charging / Power Problems",
     text: "We identify power, battery, adapter and hardware issues.",
   },
   {
-    img: softwareImg,
+    img: getSrc(softwareImg),
     webp: srcset(software480, software768),
     alt: "Laptop showing an operating system error dialog box over the desktop",
     title: "Software Problems",
     text: "Installation, errors, compatibility issues and troubleshooting.",
   },
   {
-    img: storageImg,
+    img: getSrc(storageImg),
     webp: srcset(storage480, storage768),
     alt: "An SSD and a mechanical hard disk drive laid out on a workbench beside an open laptop",
     title: "Storage Problems",
     text: "SSD/HDD upgrades, storage optimization and related troubleshooting.",
   },
   {
-    img: displayImg,
+    img: getSrc(displayImg),
     webp: srcset(display480, display768),
     alt: "Laptop with a cracked screen showing distorted, glitching colour bands",
     title: "Display Problems",
     text: "Screen, graphics, display and connection-related problems.",
   },
   {
-    img: hardwareImg,
+    img: getSrc(hardwareImg),
     webp: srcset(hardware480, hardware768),
     alt: "Technician using a precision screwdriver to repair components on a laptop motherboard",
     title: "Hardware Failure",
