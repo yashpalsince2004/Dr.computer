@@ -16,8 +16,16 @@ export function Reveal({
 
   useEffect(() => {
     const el = ref.current;
-    if (!el) return;
+    if (!el) {
+      setShown(true);
+      return;
+    }
     if (typeof IntersectionObserver === "undefined") {
+      setShown(true);
+      return;
+    }
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
       setShown(true);
       return;
     }
@@ -30,7 +38,7 @@ export function Reveal({
           }
         }
       },
-      { rootMargin: "0px 0px -8% 0px", threshold: 0.08 },
+      { rootMargin: "50px 0px 50px 0px", threshold: 0 },
     );
     io.observe(el);
     return () => io.disconnect();
