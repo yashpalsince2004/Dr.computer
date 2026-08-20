@@ -1,0 +1,39 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { Navbar } from "@/components/dr/Navbar";
+import { Hero } from "@/components/dr/Hero";
+import { Problems } from "@/components/dr/Problems";
+import { Services } from "@/components/dr/Services";
+import { HardwareSoftware } from "@/components/dr/HardwareSoftware";
+import { Process } from "@/components/dr/Process";
+import { WhyUs } from "@/components/dr/WhyUs";
+import { TrustStatement } from "@/components/dr/TrustStatement";
+import { Assembly } from "@/components/dr/Assembly";
+import { Contact, FinalCta } from "@/components/dr/Contact";
+import { Footer } from "@/components/dr/Footer";
+import { FloatingWhatsApp } from "@/components/dr/FloatingWhatsApp";
+import { Faq } from "@/components/dr/Faq";
+
+const TITLE = "Dr. Computer | Laptop & Computer Repair Services";
+const DESCRIPTION =
+  "Dr. Computer provides laptop repair, computer repair, hardware maintenance, software support, antivirus, upgrades and custom PC assembly.";
+---
+
+<Layout title={TITLE} description={DESCRIPTION}>
+  <Navbar client:load />
+  <main id="home">
+    <Hero client:load />
+    <Problems client:visible />
+    <Services client:visible />
+    <HardwareSoftware client:visible />
+    <Process client:visible />
+    <WhyUs client:visible />
+    <TrustStatement client:visible />
+    <Assembly client:visible />
+    <Faq client:visible />
+    <Contact client:visible />
+    <FinalCta client:visible />
+  </main>
+  <Footer />
+  <FloatingWhatsApp client:idle />
+</Layout>
