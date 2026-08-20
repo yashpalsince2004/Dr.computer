@@ -24,7 +24,7 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-5">
         <div className="grid gap-10 md:grid-cols-3">
           <div>
-            <Logo tone="light" className="h-10 w-auto" />
+            <Logo tone="light" className="h-13 w-auto" />
             <p className="mt-2 text-sm text-ink-muted">Your Computer's Doctor.</p>
             <a
               href="https://yashpal.me"
