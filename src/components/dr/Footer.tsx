@@ -1,3 +1,4 @@
+import { Logo } from "./Logo";
 import { whatsappLink, WA_MESSAGES } from "@/config/business";
 
 const LINKS = [
@@ -23,8 +24,7 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-5">
         <div className="grid gap-10 md:grid-cols-3">
           <div>
-            <p className="text-xl font-extrabold text-ink-foreground">Dr. Computer</p>
-            <p className="mt-1 text-xs font-semibold uppercase tracking-[0.16em] text-cyan">By Yash Pal</p>
+            <Logo className="h-10 w-auto" />
             <p className="mt-2 text-sm text-ink-muted">Your Computer's Doctor.</p>
             <a
               href="https://yashpal.me"
