@@ -2,12 +2,22 @@ import { Clock, MapPin, MessageCircle, Phone } from "lucide-react";
 import { Reveal } from "./Reveal";
 import { SectionHeading } from "./Section";
 import { WhatsAppButton } from "./WhatsAppButton";
-import { BUSINESS, WA_MESSAGES } from "@/config/business";
+import { BUSINESS, WA_MESSAGES, whatsappLink } from "@/config/business";
 
 export function Contact() {
   const cards = [
-    { icon: MessageCircle, label: "WhatsApp", value: BUSINESS.phoneDisplay },
-    { icon: Phone, label: "Phone", value: BUSINESS.phoneDisplay },
+    {
+      icon: MessageCircle,
+      label: "WhatsApp",
+      value: BUSINESS.phoneDisplay,
+      href: whatsappLink(WA_MESSAGES.general),
+    },
+    {
+      icon: Phone,
+      label: "Phone",
+      value: BUSINESS.phoneDisplay,
+      href: `tel:+${BUSINESS.whatsappNumber}`,
+    },
     { icon: MapPin, label: "Service Area", value: BUSINESS.serviceArea },
     { icon: Clock, label: "Business Hours", value: BUSINESS.hours },
   ];
@@ -24,13 +34,28 @@ export function Contact() {
         <ul className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {cards.map((c, i) => (
             <Reveal as="li" key={c.label} delay={i * 60}>
-              <div className="h-full rounded-3xl border border-border bg-background p-6">
-                <c.icon className="size-5 text-primary" aria-hidden="true" />
-                <p className="mt-4 text-xs font-bold uppercase tracking-wide text-muted-foreground">
-                  {c.label}
-                </p>
-                <p className="mt-1 text-sm font-semibold text-foreground">{c.value}</p>
-              </div>
+              {c.href ? (
+                <a
+                  href={c.href}
+                  target={c.href.startsWith("http") ? "_blank" : undefined}
+                  rel={c.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                  className="block h-full rounded-3xl border border-border bg-background p-6 transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-lift"
+                >
+                  <c.icon className="size-5 text-primary" aria-hidden="true" />
+                  <p className="mt-4 text-xs font-bold uppercase tracking-wide text-muted-foreground">
+                    {c.label}
+                  </p>
+                  <p className="mt-1 text-sm font-semibold text-foreground">{c.value}</p>
+                </a>
+              ) : (
+                <div className="h-full rounded-3xl border border-border bg-background p-6">
+                  <c.icon className="size-5 text-primary" aria-hidden="true" />
+                  <p className="mt-4 text-xs font-bold uppercase tracking-wide text-muted-foreground">
+                    {c.label}
+                  </p>
+                  <p className="mt-1 text-sm font-semibold text-foreground">{c.value}</p>
+                </div>
+              )}
             </Reveal>
           ))}
         </ul>

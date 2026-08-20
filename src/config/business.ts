@@ -2,8 +2,8 @@ export const BUSINESS = {
   name: "Dr. Computer",
   owner: "Yash Pal",
   tagline: "Your Computer's Doctor.",
-  whatsappNumber: "919326259927", // digits only, with country code
-  phoneDisplay: "+91 93262 59927",
+  whatsappNumber: "917977595905", // digits only, with country code
+  phoneDisplay: "+91 79775 95905",
   serviceArea: "Kalyan-Dombivli • Pickup & drop • On-site and remote support",
   hours: "Mon – Fri · 10:00 AM – 8:00 PM",
   city: "Kalyan-Dombivli",
